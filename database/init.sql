@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS javafxTest;
+USE javafxTest;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -18,7 +20,6 @@ INSERT INTO `authors` VALUES (8, 'Борис Васильев');
 INSERT INTO `authors` VALUES (9, 'Агата Кристи');
 INSERT INTO `authors` VALUES (10, 'Михаил Булгаков');
 
-
 CREATE TABLE `categories`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -34,6 +35,25 @@ INSERT INTO `categories` VALUES (6, 'Фэнтези');
 INSERT INTO `categories` VALUES (7, 'Драма');
 INSERT INTO `categories` VALUES (8, 'Детективный роман');
 INSERT INTO `categories` VALUES (9, 'Рассказ');
+
+CREATE TABLE `feedback`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `feedback` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `id_products` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `id_products_f_pkey_idx`(`id_products` ASC) USING BTREE,
+  CONSTRAINT `id_products_f_pkey` FOREIGN KEY (`id_products`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+);
+
+INSERT INTO `feedback` VALUES (1, 'Книга пронзает своей загадочностью, ведь далеко не каждый автор может так передать чувства героя.', 10);
+INSERT INTO `feedback` VALUES (2, 'Мне очень понравилась данныя книга', 10);
+INSERT INTO `feedback` VALUES (3, 'Ставлю книге 10 из 10 баллов. За такие деньги она очень даже ничего', 10);
+INSERT INTO `feedback` VALUES (30, 'Книга прелесть', 8);
+INSERT INTO `feedback` VALUES (31, 'Книга очень завораживает. Советую заказать её каждому. ', 10);
+INSERT INTO `feedback` VALUES (32, 'Книга мне понравилась тем как описаны события в ней, герои, сама задумка.Я уверена, что через пару лет мне захочется перечитать эту книгу.', 10);
+INSERT INTO `feedback` VALUES (33, '', 9);
+
+
 
 CREATE TABLE `izdatelstvo`  (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -52,11 +72,23 @@ INSERT INTO `izdatelstvo` VALUES (8, 'Росмэн-Пресс');
 INSERT INTO `izdatelstvo` VALUES (9, 'Popcorn Books');
 INSERT INTO `izdatelstvo` VALUES (10, 'АСТ');
 
+CREATE TABLE `klient`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `phonenumber` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+);
+
 CREATE TABLE `orders`  (
   `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NULL DEFAULT NULL,
   `total_price` double(10, 2) NULL DEFAULT NULL,
   `pickup_poind_id` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `user_id`(`user_id` ASC) USING BTREE,
+  CONSTRAINT `fk_orders_klient` FOREIGN KEY (`user_id`) REFERENCES `klient` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 );
 
 INSERT INTO `orders` VALUES (1, 590.00, 4);
@@ -126,23 +158,6 @@ INSERT INTO `products` VALUES (9, '\"Буря мечей\"', 1800, 1, 9, 10, 'П
 INSERT INTO `products` VALUES (10, '\"Записки юного врача\"', 1500, 1, 1, 1, 'Эти семь маленьких шедевров Михаил Булгаков создал в юности, хотя через много лет отредактировал заново. Время действия - 1917 год, место - больница в глухой российской деревне. Сюда в качестве главного и единственного доктора пребывает 23-летний выпускник медицинского факультета с отличной теоретической подготовкой и полным отсутствием опыта. Первые пациенты, тяжелые случаи, неизбежные ошибки, борьба с собственными страхами и малодушием, маленькие и большие победы, иногда - трагические поражения.', 'picture/zapiskiDok.jpg', 'Нет в наличии');
 
 
-CREATE TABLE `feedback`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `feedback` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `id_products` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `id_products_f_pkey_idx`(`id_products` ASC) USING BTREE,
-  CONSTRAINT `id_products_f_pkey` FOREIGN KEY (`id_products`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
-
-INSERT INTO `feedback` VALUES (1, 'Книга пронзает своей загадочностью, ведь далеко не каждый автор может так передать чувства героя.', 10);
-INSERT INTO `feedback` VALUES (2, 'Мне очень понравилась данныя книга', 10);
-INSERT INTO `feedback` VALUES (3, 'Ставлю книге 10 из 10 баллов. За такие деньги она очень даже ничего', 10);
-INSERT INTO `feedback` VALUES (30, 'Книга прелесть', 8);
-INSERT INTO `feedback` VALUES (31, 'Книга очень завораживает. Советую заказать её каждому. ', 10);
-INSERT INTO `feedback` VALUES (32, 'Книга мне понравилась тем как описаны события в ней, герои, сама задумка.Я уверена, что через пару лет мне захочется перечитать эту книгу.', 10);
-INSERT INTO `feedback` VALUES (33, '', 9);
-
 CREATE TABLE `products_has_order`  (
   `order_id` int NOT NULL,
   `product_id` int NOT NULL,
@@ -187,6 +202,7 @@ INSERT INTO `products_has_order` VALUES (24, 9, 1);
 INSERT INTO `products_has_order` VALUES (24, 7, 2);
 INSERT INTO `products_has_order` VALUES (24, 5, 1);
 
+
 CREATE TABLE `roles`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -195,21 +211,6 @@ CREATE TABLE `roles`  (
 
 INSERT INTO `roles` VALUES (1, 'Сотрудник магазина');
 INSERT INTO `roles` VALUES (2, 'Клиент');
-
-CREATE TABLE `users`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `usersurname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `userlogin` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `userpassword` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `role_id` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `role_id`(`role_id` ASC) USING BTREE,
-  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
-
-INSERT INTO `users` VALUES (1, 'Алла', 'Глюкова', 'test', 'test1', 1);
-INSERT INTO `users` VALUES (2, 'Вадим', 'Ленин', 'test2', 'test2', 2);
 
 CREATE TABLE `stranic`  (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -241,6 +242,19 @@ INSERT INTO `stranic` VALUES (22, 9, 'picture/byrmechTwo.jpg');
 INSERT INTO `stranic` VALUES (23, 10, 'picture/zapisvracOne.jpg');
 INSERT INTO `stranic` VALUES (24, 10, 'picture/zapisvracTwo.jpg');
 
+CREATE TABLE `users`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `usersurname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `userlogin` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `userpassword` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `role_id` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `role_id`(`role_id` ASC) USING BTREE,
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+);
 
+INSERT INTO `users` VALUES (1, 'Алла', 'Глюкова', 'test', 'test1', 1);
+INSERT INTO `users` VALUES (2, 'Вадим', 'Ленин', 'test2', 'test2', 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
