@@ -196,6 +196,21 @@ CREATE TABLE `roles`  (
 INSERT INTO `roles` VALUES (1, 'Сотрудник магазина');
 INSERT INTO `roles` VALUES (2, 'Клиент');
 
+CREATE TABLE `users`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `usersurname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `userlogin` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `userpassword` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `role_id` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `role_id`(`role_id` ASC) USING BTREE,
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+);
+
+INSERT INTO `users` VALUES (1, 'Алла', 'Глюкова', 'test', 'test1', 1);
+INSERT INTO `users` VALUES (2, 'Вадим', 'Ленин', 'test2', 'test2', 2);
+
 CREATE TABLE `stranic`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `book_id` int NULL DEFAULT NULL,
@@ -226,19 +241,6 @@ INSERT INTO `stranic` VALUES (22, 9, 'picture/byrmechTwo.jpg');
 INSERT INTO `stranic` VALUES (23, 10, 'picture/zapisvracOne.jpg');
 INSERT INTO `stranic` VALUES (24, 10, 'picture/zapisvracTwo.jpg');
 
-CREATE TABLE `users`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `usersurname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `userlogin` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `userpassword` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `role_id` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `role_id`(`role_id` ASC) USING BTREE,
-  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
 
-INSERT INTO `users` VALUES (1, 'Алла', 'Глюкова', 'test', 'test1', 1);
-INSERT INTO `users` VALUES (2, 'Вадим', 'Ленин', 'test2', 'test2', 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
