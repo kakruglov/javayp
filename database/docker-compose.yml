@@ -13,7 +13,7 @@ services:
       MYSQL_USER: kirill
       MYSQL_PASSWORD: 123321
     volumes:
-      - C:/Users/User/database/javayp/mariadb:/var/lib/mysql
+      - C:/Users/User/javayp/database/mariadb:/var/lib/mysql
       - C:/Users/User/javayp/database/init.sql:/data/application/init.sql
 
 #    network_mode: "host"
