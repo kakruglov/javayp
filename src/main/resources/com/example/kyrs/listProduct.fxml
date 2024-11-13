@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="idContainer" prefHeight="242.0" prefWidth="700.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="239.0" prefWidth="700.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="161.0" prefWidth="146.0">
+               <children>
+                  <ImageView fx:id="idImg" fitHeight="125.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="126.0" prefWidth="307.0" spacing="30.0">
+               <children>
+                  <HBox style="-fx-background-radius: 20;">
+                     <Label text="Название:  ">
+                        <font>
+                           <Font size="16.0" />
+                        </font></Label>
+                     <Label fx:id="idName" text="Label">
+                        <font>
+                           <Font size="16.0" />
+                        </font></Label>
+                  </HBox>
+                  <HBox style="-fx-background-radius: 20;" />
+                  <HBox style="-fx-background-radius: 20;">
+                     <Label text="Цена:  ">
+                        <font>
+                           <Font size="16.0" />
+                        </font></Label>
+                     <Label fx:id="idPrice" lineSpacing="30.0" text="Label">
+                        <font>
+                           <Font size="16.0" />
+                        </font></Label>
+                  </HBox>
+                  <HBox style="-fx-background-radius: 20;">
+                     <Label text="Остаток на складе:  ">
+                        <font>
+                           <Font size="16.0" />
+                        </font></Label>
+                     <Label fx:id="idNalic" text="Label">
+                        <font>
+                           <Font size="16.0" />
+                        </font></Label>
+                  </HBox>
+                  <HBox style="-fx-background-radius: 20;" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="235.0" prefWidth="248.0">
+               <children>
+                  <Label fx:id="idOpis" prefHeight="257.0" prefWidth="248.0" text="Label" wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

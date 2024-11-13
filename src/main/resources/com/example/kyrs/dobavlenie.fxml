@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="747.0" style="-fx-background-color: #76c5e9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kyrs.Dobavlenie">
+   <children>
+      <ImageView fx:id="imageView" fitHeight="168.0" fitWidth="218.0" layoutX="460.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane prefHeight="61.0" prefWidth="747.0" style="-fx-background-color: #4571b7;">
+         <children>
+            <Label layoutX="200.0" layoutY="12.0" text="Добавление нового товара" textFill="#deddf1">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Button fx:id="back" layoutX="28.0" layoutY="11.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-background-color: #94ccff;" text="Вернуться">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="addProduct" layoutX="590.0" layoutY="11.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-background-color: #94ccff;" text="Добавить">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <TextField fx:id="opisanie" layoutX="30.0" layoutY="190.0" promptText="Описание" style="-fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-background-radius: 10; -fx-border-radius: 10; -fx-prompt-text-fill: black;" />
+      <ComboBox fx:id="category_id" layoutX="568.0" layoutY="81.0" prefWidth="150.0" promptText="Жанр" style="-fx-background-radius: 10; -fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-border-radius: 10;" />
+      <ComboBox fx:id="author_id" layoutX="393.0" layoutY="81.0" prefWidth="150.0" promptText="Автор" style="-fx-background-radius: 10; -fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-border-radius: 10;" />
+      <ComboBox fx:id="izdatelstvo_id" layoutX="214.0" layoutY="81.0" prefWidth="150.0" promptText="Издательство" style="-fx-background-radius: 10; -fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-border-radius: 10;" />
+      <TextField fx:id="id" layoutX="30.0" layoutY="80.0" promptText="ID" style="-fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-background-radius: 10; -fx-border-radius: 10; -fx-prompt-text-fill: black;" />
+      <TextField fx:id="name" layoutX="30.0" layoutY="135.0" promptText="Название" style="-fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-background-radius: 10; -fx-border-radius: 10; -fx-prompt-text-fill: black;" />
+      <TextField fx:id="price" layoutX="30.0" layoutY="244.0" promptText="Цена" style="-fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-background-radius: 10; -fx-border-radius: 10; -fx-prompt-text-fill: black;" />
+      <ComboBox fx:id="nalichies" layoutX="30.0" layoutY="300.0" prefWidth="150.0" promptText="Наличие" style="-fx-background-radius: 10; -fx-background-color: #94ccff; -fx-border-color: #00a6fb; -fx-border-radius: 10;" />
+      <ImageView fitHeight="230.0" fitWidth="232.0" layoutX="331.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@addbooks.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

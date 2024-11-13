@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="540.0" maxWidth="890.0" minHeight="540.0" minWidth="760.0" prefHeight="540.0" prefWidth="890.0" style="-fx-background-color: #4571b7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kyrs.KlientKnigi">
+   <children>
+      <ListView fx:id="idspis" layoutY="123.0" prefHeight="418.0" prefWidth="890.0" style="-fx-background-color: #76c5e9;" />
+      <TextField fx:id="TextFieldPoisk" layoutX="14.0" layoutY="76.0" prefHeight="36.0" prefWidth="668.0" promptText="Поиск" style="-fx-background-radius: 100;" />
+      <ComboBox fx:id="idCategory" layoutX="688.0" layoutY="76.0" prefHeight="37.0" prefWidth="195.0" promptText="Поиск по жанрам" style="-fx-background-radius: 30; -fx-background-color: #94ccff; -fx-font-size: 16;" />
+      <Label layoutX="347.0" layoutY="14.0" text="Список товаров" textFill="#deddf1">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

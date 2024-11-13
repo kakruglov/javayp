@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="581.0" style="-fx-background-color: #76c5e9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kyrs.addotzbIv">
+   <children>
+      <AnchorPane prefHeight="74.0" prefWidth="581.0" style="-fx-background-color: #4571b7;">
+         <children>
+            <Label layoutX="221.0" layoutY="10.0" text="Отзывы" textFill="#deddf1">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="addFeedBack" layoutX="411.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-radius: 30; -fx-background-color: #94ccff;" text="Добавить отзыв">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="back" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-radius: 30; -fx-background-color: #94ccff;" text="Вернуться">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TextArea fx:id="AreaFeedBack" layoutX="13.0" layoutY="79.0" prefHeight="200.0" prefWidth="557.0" promptText="Напишите ваш отзыв о прочитанной книге" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font></TextArea>
+   </children>
+</AnchorPane>

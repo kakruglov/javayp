@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="idContainer" prefHeight="238.0" prefWidth="722.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="238.0" prefWidth="722.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="161.0" prefWidth="146.0" style="-fx-background-radius: 20;">
+               <children>
+                  <ImageView fx:id="idImg" fitHeight="125.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="126.0" prefWidth="307.0" spacing="30.0" style="-fx-background-radius: 20;">
+               <children>
+                  <HBox style="-fx-background-radius: 20;">
+                     <children>
+                        <Label text="Название:">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                        <Label fx:id="idFio" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+                  <HBox style="-fx-background-radius: 20;">
+                     <children>
+                        <Label text="Описание:">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                        <Label fx:id="idOpis" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+                  <HBox style="-fx-background-radius: 20;">
+                     <children>
+                        <Label text="Цена:">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                        <Label fx:id="idPrice" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+                  <HBox style="-fx-background-radius: 20;" />
+                  <HBox style="-fx-background-radius: 20;" />
+               </children>
+               <padding>
+                  <Insets right="5.0" top="15.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="170.0" prefWidth="262.0">
+               <children>
+                  <HBox prefHeight="171.0" prefWidth="248.0">
+                     <children>
+                        <Label text="Количество">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                        <TextField fx:id="idKolvo" prefHeight="26.0" prefWidth="84.0" />
+                     </children>
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="466.0" maxWidth="972.0" minHeight="406.0" minWidth="972.0" prefHeight="466.0" prefWidth="972.0" style="-fx-background-color: #76c5e9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kyrs.Order">
+   <children>
+      <AnchorPane prefHeight="90.0" prefWidth="972.0" style="-fx-background-color: #4571b7;" />
+      <Label layoutX="227.0" layoutY="31.0" text="Оформление заказа" textFill="#deddf1">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="addOrder" layoutX="775.0" layoutY="31.0" mnemonicParsing="false" onAction="#addOrder" style="-fx-background-radius: 30; -fx-background-color: #94ccff;" text="Добавить заказ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" layoutX="27.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-radius: 30; -fx-background-color: #94ccff;" text="Вернуться">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ListView fx:id="idspis" layoutY="90.0" prefHeight="375.0" prefWidth="717.0" />
+      <ImageView fitHeight="37.0" fitWidth="52.0" layoutX="735.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@addorder.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="idPrice" layoutX="782.0" layoutY="403.0" prefHeight="18.0" prefWidth="60.0">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <ComboBox fx:id="PickupPoint" layoutX="550.0" layoutY="31.0" prefHeight="39.0" prefWidth="170.0" promptText="Пункт выдачи" style="-fx-background-radius: 30; -fx-font-size: 16px; -fx-background-color: #94ccff;" />
+      <ListView fx:id="korzina" layoutX="740.0" layoutY="90.0" prefHeight="258.0" prefWidth="231.0" />
+      <Button fx:id="delteKorzina" layoutX="764.0" layoutY="358.0" mnemonicParsing="false" onAction="#deleteKorzina" style="-fx-background-color: #4571b7; -fx-background-radius: 30;" text="Очистить корзину" textFill="#deddf1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
