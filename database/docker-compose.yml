@@ -16,4 +16,4 @@ services:
       - C:/Users/User/javayp/database/mariadb:/var/lib/mysql
       - C:/Users/User/javayp/database/init.sql:/data/application/init.sql
 
-#    network_mode: "host"
+    # network_mode: "host"

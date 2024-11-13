@@ -91,7 +91,7 @@ public class Authoriz {
                             Stage stage = new Stage();
                             Scene scene = new Scene(fxmlLoader.load(), 252, 167);
                             stage.setTitle("Проверка капчей");
-                            stage.getIcons().add(new Image("file:captcha.png"));
+                            stage.getIcons().add(new Image("file:picture/captcha.png"));
                             stage.setScene(scene);
                             stage.show();
                         }

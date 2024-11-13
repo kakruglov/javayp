@@ -102,7 +102,7 @@
                     Stage stage = new Stage();
                     // Установите заголовок окна
                     stage.setTitle("Новый заказ");
-                    stage.getIcons().add(new Image("file:addorders.png"));
+                    stage.getIcons().add(new Image("file:picture/addorders.png"));
                     // Установите сцену для окна Stage
                     stage.setScene(scene);
                     // Покажите окно
@@ -148,7 +148,7 @@
                                 Stage stage = new Stage();
                                 stage.setScene(scene);
                                 stage.setTitle("Отзывы");
-                                stage.getIcons().add(new Image("file:checkfeedback.png"));
+                                stage.getIcons().add(new Image("file:picture/checkfeedback.png"));
                                 stage.show();
                             }
                         } catch (IOException e) {
@@ -177,7 +177,7 @@
                             Stage stage = new Stage();
                             stage.setScene(scene);
                             stage.setTitle("Добавление отзыва");
-                            stage.getIcons().add(new Image("file:addfeedback.png"));
+                            stage.getIcons().add(new Image("file:picture/addfeedback.png"));
                             stage.show();
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -210,7 +210,7 @@
                                 Stage stage = new Stage();
                                 stage.setScene(scene);
                                 stage.setTitle("Страницы");
-                                stage.getIcons().add(new Image("file:stranic.png"));
+                                stage.getIcons().add(new Image("file:picture/stranic.png"));
                                 stage.show();
                             }
                         } catch (IOException e) {
@@ -226,7 +226,7 @@
                             Stage stage = new Stage();
                             stage.setScene(scene);
                             stage.setTitle("Добавление товара");
-                            stage.getIcons().add(new Image("file:addbook.png"));
+                            stage.getIcons().add(new Image("file:picture/addbook.png"));
                             stage.show();
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -274,7 +274,7 @@
                             Stage stage = new Stage();
                             stage.setScene(scene);
                             stage.setTitle("Редактирование товара");
-                            stage.getIcons().add(new Image("file:redaktbook.png"));
+                            stage.getIcons().add(new Image("file:picture/redaktbook.png"));
                             stage.show();
 
                         } catch (IOException e) {

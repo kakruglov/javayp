@@ -109,7 +109,7 @@ public class KlientKnigi {
                                 Stage stage = new Stage();
                                 stage.setScene(scene);
                                 stage.setTitle("Отзывы");
-                                stage.getIcons().add(new Image("file:checkfeedback.png"));
+                                stage.getIcons().add(new Image("file:picture/checkfeedback.png"));
                                 stage.show();
                             }
                         } catch (IOException e) {
@@ -136,7 +136,7 @@ public class KlientKnigi {
                             Stage stage = new Stage();
                             stage.setScene(scene);
                             stage.setTitle("Добавление отзыва");
-                            stage.getIcons().add(new Image("file:addfeedback.png"));
+                            stage.getIcons().add(new Image("file:picture/addfeedback.png"));
                             stage.show();
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -167,7 +167,7 @@ public class KlientKnigi {
                                 Stage stage = new Stage();
                                 stage.setScene(scene);
                                 stage.setTitle("Страницы");
-                                stage.getIcons().add(new Image("file:stranic.png"));
+                                stage.getIcons().add(new Image("file:picture/stranic.png"));
                                 stage.show();
                             }
                         } catch (IOException e) {
