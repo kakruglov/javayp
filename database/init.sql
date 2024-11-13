@@ -38,23 +38,6 @@ INSERT INTO `categories` VALUES (7, 'Драма');
 INSERT INTO `categories` VALUES (8, 'Детективный роман');
 INSERT INTO `categories` VALUES (9, 'Рассказ');
 
-CREATE TABLE `feedback`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `feedback` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `id_products` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `id_products_f_pkey_idx`(`id_products` ASC) USING BTREE,
-  CONSTRAINT `id_products_f_pkey` FOREIGN KEY (`id_products`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
-INSERT INTO `feedback` VALUES (1, 'Книга пронзает своей загадочностью, ведь далеко не каждый автор может так передать чувства героя.', 10);
-INSERT INTO `feedback` VALUES (2, 'Мне очень понравилась данныя книга', 10);
-INSERT INTO `feedback` VALUES (3, 'Ставлю книге 10 из 10 баллов. За такие деньги она очень даже ничего', 10);
-INSERT INTO `feedback` VALUES (30, 'Книга прелесть', 8);
-INSERT INTO `feedback` VALUES (31, 'Книга очень завораживает. Советую заказать её каждому. ', 10);
-INSERT INTO `feedback` VALUES (32, 'Книга мне понравилась тем как описаны события в ней, герои, сама задумка.Я уверена, что через пару лет мне захочется перечитать эту книгу.', 10);
-INSERT INTO `feedback` VALUES (33, '', 9);
-
 CREATE TABLE `izdatelstvo`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -147,6 +130,24 @@ INSERT INTO `products` VALUES (7, '\"В списках не значился\"',
 INSERT INTO `products` VALUES (8, '\"Десять негритят\"', 280, 8, 8, 5, 'Десять никак не связанных между собой людей в особняке на уединенном острове... Кто вызвал их сюда таинственным приглашением? Зачем кто-то убивает их, одного за другим, самыми невероятными способами? Почему все происходящее так тесно переплетено с веселым детским стишком?', 'tennegr.jpg', 'Есть в наличии');
 INSERT INTO `products` VALUES (9, '\"Буря мечей\"', 1800, 1, 9, 10, 'Перед вами - знаменитая эпопея \"Песнь льда и огня\". Эпическая, чеканная сага о мире Семи Королевств. О мире суровых земель вечного холода и радостных земель вечного лета. О мире опасных приключений, тончайших политических интриг и великих деяний. О мире лордов и героев, драконов, воинов и магов, чернокнижников и убийц - всех, кого свела Судьба во исполнение пророчества...', 'picture/byriaMech.jpg', 'Есть в наличии');
 INSERT INTO `products` VALUES (10, '\"Записки юного врача\"', 1500, 1, 1, 1, 'Эти семь маленьких шедевров Михаил Булгаков создал в юности, хотя через много лет отредактировал заново. Время действия - 1917 год, место - больница в глухой российской деревне. Сюда в качестве главного и единственного доктора пребывает 23-летний выпускник медицинского факультета с отличной теоретической подготовкой и полным отсутствием опыта. Первые пациенты, тяжелые случаи, неизбежные ошибки, борьба с собственными страхами и малодушием, маленькие и большие победы, иногда - трагические поражения.', 'picture/zapiskiDok.jpg', 'Нет в наличии');
+
+
+CREATE TABLE `feedback`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `feedback` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `id_products` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `id_products_f_pkey_idx`(`id_products` ASC) USING BTREE,
+  CONSTRAINT `id_products_f_pkey` FOREIGN KEY (`id_products`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+INSERT INTO `feedback` VALUES (1, 'Книга пронзает своей загадочностью, ведь далеко не каждый автор может так передать чувства героя.', 10);
+INSERT INTO `feedback` VALUES (2, 'Мне очень понравилась данныя книга', 10);
+INSERT INTO `feedback` VALUES (3, 'Ставлю книге 10 из 10 баллов. За такие деньги она очень даже ничего', 10);
+INSERT INTO `feedback` VALUES (30, 'Книга прелесть', 8);
+INSERT INTO `feedback` VALUES (31, 'Книга очень завораживает. Советую заказать её каждому. ', 10);
+INSERT INTO `feedback` VALUES (32, 'Книга мне понравилась тем как описаны события в ней, герои, сама задумка.Я уверена, что через пару лет мне захочется перечитать эту книгу.', 10);
+INSERT INTO `feedback` VALUES (33, '', 9);
 
 CREATE TABLE `products_has_order`  (
   `order_id` int NOT NULL,
