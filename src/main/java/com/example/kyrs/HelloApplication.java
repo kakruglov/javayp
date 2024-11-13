@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("authoriz.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Окно авторизации");
-        stage.getIcons().add(new Image("file:login.png"));
+        stage.getIcons().add(new Image("file:picture/login.png"));
         stage.setScene(scene);
         stage.show();
     }
