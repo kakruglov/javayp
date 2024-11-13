@@ -7,7 +7,7 @@ CREATE TABLE `authors`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `authors` VALUES (1, 'Джоан Роулинг');
 INSERT INTO `authors` VALUES (2, 'Стивен Кинг');
@@ -20,11 +20,12 @@ INSERT INTO `authors` VALUES (8, 'Борис Васильев');
 INSERT INTO `authors` VALUES (9, 'Агата Кристи');
 INSERT INTO `authors` VALUES (10, 'Михаил Булгаков');
 
+
 CREATE TABLE `categories`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `categories` VALUES (1, 'Роман');
 INSERT INTO `categories` VALUES (2, 'Ода');
@@ -43,7 +44,7 @@ CREATE TABLE `feedback`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `id_products_f_pkey_idx`(`id_products` ASC) USING BTREE,
   CONSTRAINT `id_products_f_pkey` FOREIGN KEY (`id_products`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `feedback` VALUES (1, 'Книга пронзает своей загадочностью, ведь далеко не каждый автор может так передать чувства героя.', 10);
 INSERT INTO `feedback` VALUES (2, 'Мне очень понравилась данныя книга', 10);
@@ -53,13 +54,11 @@ INSERT INTO `feedback` VALUES (31, 'Книга очень завораживае
 INSERT INTO `feedback` VALUES (32, 'Книга мне понравилась тем как описаны события в ней, герои, сама задумка.Я уверена, что через пару лет мне захочется перечитать эту книгу.', 10);
 INSERT INTO `feedback` VALUES (33, '', 9);
 
-
-
 CREATE TABLE `izdatelstvo`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `izdatelstvo` VALUES (1, 'Просвещение');
 INSERT INTO `izdatelstvo` VALUES (2, 'ЭКСМО');
@@ -72,24 +71,12 @@ INSERT INTO `izdatelstvo` VALUES (8, 'Росмэн-Пресс');
 INSERT INTO `izdatelstvo` VALUES (9, 'Popcorn Books');
 INSERT INTO `izdatelstvo` VALUES (10, 'АСТ');
 
-CREATE TABLE `klient`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `fio` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `phonenumber` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-);
-
 CREATE TABLE `orders`  (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NULL DEFAULT NULL,
   `total_price` double(10, 2) NULL DEFAULT NULL,
   `pickup_poind_id` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `user_id`(`user_id` ASC) USING BTREE,
-  CONSTRAINT `fk_orders_klient` FOREIGN KEY (`user_id`) REFERENCES `klient` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `orders` VALUES (1, 590.00, 4);
 INSERT INTO `orders` VALUES (3, 10340.00, 4);
@@ -120,7 +107,7 @@ CREATE TABLE `pickup_point`  (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `address` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `pickup_point` VALUES (1, 'Ozon', 'ул.Олвера-стрит д53 кв172');
 INSERT INTO `pickup_point` VALUES (2, 'Amazon', 'ул.Бродвей д125 кв61');
@@ -144,8 +131,11 @@ CREATE TABLE `products`  (
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `products_ibfk_2` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `products_ibfk_3` FOREIGN KEY (`izdatelstvo_id`) REFERENCES `izdatelstvo` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 1342535 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
+-- ----------------------------
+-- Records of products
+-- ----------------------------
 INSERT INTO `products` VALUES (1, '\"Гарри Поттер и узник Азкабана\"', 1500, 6, 1, 7, 'Гарри взрослеет, и вместе с тем жить в Хогвартсе всё страшнее. Из тюрьмы для волшебников Азкабан сбежал опасный преступник - Сириус Блэк. Мир наполнился слухами, что он ищет и хочет убить одного тринадцатилетнего парня, совсем обычного на первый взгляд. Его имя - Гарри Поттер.', 'picture/garry.jpg', 'Есть в наличии');
 INSERT INTO `products` VALUES (2, '\"Зелёная миля\"', 300, 7, 2, 10, 'Стивен Кинг приглашает читателей в жуткий мир тюремного блока смертников, откуда уходят, чтобы не вернуться, приоткрывает дверь последнего пристанища тех, кто преступил не только человеческий, но и Божий закон. По эту сторону электрического стула нет более смертоносного местечка! Ничто из того, что вы читали раньше, не сравнится с самым дерзким из ужасных опытов Стивена Кинга - с историей, что начинается на Дороге Смерти и уходит в глубины самых чудовищных тайн человеческой души...', 'picture/greenMiles.jpg', 'Есть в наличии');
 INSERT INTO `products` VALUES (3, '\"Унесенные ветром\"', 140, 3, 3, 3, 'Роман Маргарет Митчелл вышел в свет в 1936 году и имел феноменальный успех у читателей. Только в первые годы его тираж превысил три миллиона, и «Унесенные ветром» были признаны «книгой века». В 1939 году на экраны вышел одноименный фильм (с участием Вивьен Ли и Кларком Гейблом), который завоевал восемь премий «Оскар» и стал одной из самых кассовых лент в истории кинематографа. Несмотря на полярные оценки литературных критиков, роман удостоился престижной Пулитцеровской премии, его сравнивали с «Войной и миром» Льва Толстого, а Маргарет Митчелл ставили в один ряд с великими классиками мировой литературы. Книга выдержала более 70 изданий только в Соединенных Штатах, была переведена на десятки языков и по сей день пользуется неизменной популярностью и любовью у читателей во всем мире.', 'picture/ynesVetrom.jpg', 'Есть в наличии');
@@ -157,7 +147,6 @@ INSERT INTO `products` VALUES (8, '\"Десять негритят\"', 280, 8, 8
 INSERT INTO `products` VALUES (9, '\"Буря мечей\"', 1800, 1, 9, 10, 'Перед вами - знаменитая эпопея \"Песнь льда и огня\". Эпическая, чеканная сага о мире Семи Королевств. О мире суровых земель вечного холода и радостных земель вечного лета. О мире опасных приключений, тончайших политических интриг и великих деяний. О мире лордов и героев, драконов, воинов и магов, чернокнижников и убийц - всех, кого свела Судьба во исполнение пророчества...', 'picture/byriaMech.jpg', 'Есть в наличии');
 INSERT INTO `products` VALUES (10, '\"Записки юного врача\"', 1500, 1, 1, 1, 'Эти семь маленьких шедевров Михаил Булгаков создал в юности, хотя через много лет отредактировал заново. Время действия - 1917 год, место - больница в глухой российской деревне. Сюда в качестве главного и единственного доктора пребывает 23-летний выпускник медицинского факультета с отличной теоретической подготовкой и полным отсутствием опыта. Первые пациенты, тяжелые случаи, неизбежные ошибки, борьба с собственными страхами и малодушием, маленькие и большие победы, иногда - трагические поражения.', 'picture/zapiskiDok.jpg', 'Нет в наличии');
 
-
 CREATE TABLE `products_has_order`  (
   `order_id` int NOT NULL,
   `product_id` int NOT NULL,
@@ -166,7 +155,7 @@ CREATE TABLE `products_has_order`  (
   INDEX `products_has_order_fk_1`(`product_id` ASC) USING BTREE,
   CONSTRAINT `products_has_order_fk` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `products_has_order_fk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-);
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `products_has_order` VALUES (1, 10, 1);
 INSERT INTO `products_has_order` VALUES (3, 3, 6);
@@ -202,12 +191,11 @@ INSERT INTO `products_has_order` VALUES (24, 9, 1);
 INSERT INTO `products_has_order` VALUES (24, 7, 2);
 INSERT INTO `products_has_order` VALUES (24, 5, 1);
 
-
 CREATE TABLE `roles`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `roles` VALUES (1, 'Сотрудник магазина');
 INSERT INTO `roles` VALUES (2, 'Клиент');
@@ -219,7 +207,7 @@ CREATE TABLE `stranic`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `book_id`(`book_id` ASC) USING BTREE,
   CONSTRAINT `stranic_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `stranic` VALUES (5, 1, 'picture/garryOne.jpg');
 INSERT INTO `stranic` VALUES (6, 1, 'picture/garryTwo.jpg');
@@ -252,9 +240,10 @@ CREATE TABLE `users`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `role_id`(`role_id` ASC) USING BTREE,
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-);
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 INSERT INTO `users` VALUES (1, 'Алла', 'Глюкова', 'test', 'test1', 1);
 INSERT INTO `users` VALUES (2, 'Вадим', 'Ленин', 'test2', 'test2', 2);
+
 
 SET FOREIGN_KEY_CHECKS = 1;
