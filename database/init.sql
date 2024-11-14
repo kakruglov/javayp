@@ -244,7 +244,7 @@ CREATE TABLE `users`  (
 
 INSERT INTO `users` VALUES (1, 'Алла', 'Глюкова', 'test', 'test1', 1);
 INSERT INTO `users` VALUES (2, 'Вадим', 'Ленин', 'test2', 'test2', 2);
-delimiter ;
+delimiter ;;
 CREATE PROCEDURE `DeleteBook`(IN bookId INT)
 BEGIN
    DELETE FROM feedback WHERE id_products = bookId;
