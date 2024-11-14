@@ -244,20 +244,5 @@ CREATE TABLE `users`  (
 
 INSERT INTO `users` VALUES (1, 'Алла', 'Глюкова', 'test', 'test1', 1);
 INSERT INTO `users` VALUES (2, 'Вадим', 'Ленин', 'test2', 'test2', 2);
-delimiter ;;
-CREATE PROCEDURE `DeleteBook`(IN bookId INT)
-BEGIN
-   DELETE FROM feedback WHERE id_products = bookId;
-   DELETE FROM products_has_order WHERE product_id = bookId;
-   DELETE FROM stranic WHERE book_id = bookId;
-   DELETE FROM products WHERE id = bookId;
-END;;
-delimiter ;;
-CREATE TRIGGER `update_order_price` BEFORE INSERT ON `products_has_order` FOR EACH ROW BEGIN
-   UPDATE orders SET total_price = total_price + (SELECT price FROM products WHERE id = NEW.product_id) * NEW.kol_vo
-   WHERE id = NEW.order_id;
-END;;
-delimiter;
-
 
 SET FOREIGN_KEY_CHECKS = 1;
