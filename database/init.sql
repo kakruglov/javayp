@@ -252,8 +252,12 @@ BEGIN
    DELETE FROM stranic WHERE book_id = bookId;
    DELETE FROM products WHERE id = bookId;
 END;;
-delimiter ;
-
+delimiter ;;
+CREATE TRIGGER `update_order_price` BEFORE INSERT ON `products_has_order` FOR EACH ROW BEGIN
+   UPDATE orders SET total_price = total_price + (SELECT price FROM products WHERE id = NEW.product_id) * NEW.kol_vo
+   WHERE id = NEW.order_id;
+END;;
+delimiter;
 
 
 SET FOREIGN_KEY_CHECKS = 1;
